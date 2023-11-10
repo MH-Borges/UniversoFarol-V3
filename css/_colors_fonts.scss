@@ -1,0 +1,38 @@
+@font-face{
+    font-family: "Now";
+    font-weight: 100;
+    src: local('Now Thin'), url('../assets/font/Now-Thin.woff') format('woff');
+}
+@font-face{
+    font-family: "Now";
+    font-weight: 300;
+    src: local('Now Light'), url('../assets/font/Now-Light.woff') format('woff');
+}
+@font-face{
+    font-family: "Now";
+    font-weight: 500;
+    src: local('Now Regular'), url('../assets/font/Now-Regular.woff') format('woff');
+}
+@font-face{
+    font-family: "Now";
+    font-weight: 600;
+    src: local('Now Medium'), url('../assets/font/Now-Medium.woff') format('woff');
+}
+@font-face{
+    font-family: "Now";
+    font-weight: 800;
+    src: local('Now Bold'), url('../assets/font/Now-Bold.woff') format('woff');
+}
+@font-face{
+    font-family: "Now";
+    font-weight: 900;
+    src: local('Now Black'), url('../assets/font/Now-Black.woff') format('woff');
+}
+
+$Main-font: 'Now', sans-serif;
+
+$Branco: #FFFFFF;
+$Cinza: #CACACA;
+$Laranja: #FF6D2A;
+$Azul: #0A2749;
+$AzulEscuro: #03173C;

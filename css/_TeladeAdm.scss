@@ -1,0 +1,909 @@
+.TelaAdm{
+    display: flex;
+    position: relative;
+    background: radial-gradient(59.14% 70.68% at 50% 50.04%, #CDCDC3 0%, #8E8E8E 100%);
+    width: 100vw;
+    height: 100vh;
+    color: $Branco;
+    overflow-x: hidden;
+
+    .Background{
+        width: 100vw;
+        position: absolute;
+        opacity: 0.5;
+        .Padrao{
+            width: 100%;
+            height: 100vh;
+        }
+    }
+
+    .admHeader{
+        padding: 1vw;
+        width: 100%;
+        height: 15vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .Infos{
+            margin: 0;
+            position: relative;
+            width: 30vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $Branco;
+            padding: 0;
+            .InfosImg{
+                width: 30%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5vh 0.5vw;
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            .nomeTagAdm{
+                width: 70%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 0.5vw;
+                justify-content: center;
+                .nomeAdm{
+                    margin: 0;
+                    width: 100%;
+                    height: 65%;
+                    font-size: 1.25vw;
+                    font-weight: 800;
+                    display: flex;
+                    align-items: center;
+                }
+                .TagAdm{
+                    border: solid $Branco 1px;
+                    margin: 0;
+                    width: 50%;
+                    height: 35%;
+                    font-size: 0.75vw;
+                    font-weight: 800;
+                    display: flex;
+                    align-items: center;
+                    border-top-right-radius: 2vw;
+                    border-bottom-right-radius: 2vw;
+                    padding: 0.5vh 0 0.25vh 0.25vw;
+                }
+            }
+        }
+        button{
+            border: none;
+            background: none;
+            width: 5vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25vw;
+            margin: 0 0.25vw;
+            svg{
+                width: 100%;
+                height: 100%;
+                path{
+                    fill: $Branco;
+                }
+            }
+            &:nth-child(2){
+                margin-left: auto;
+            }
+        }
+    }
+
+    main{
+        width: 100%;
+        height: 85vh;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        .addNewLink{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1vh 0;
+            a{
+                background: none;
+                border: solid 1px $Branco;
+                width: 16vw;
+                height: 100%;
+                color: $Branco;
+                font-weight: 800;
+                font-size: 1.25vw;
+                border-radius: 2vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5vh 0.5vw 0.25vh 0.5vw;
+                transition: ease-in-out 0.5s;
+                svg{
+                    rotate: 45deg;
+                    width: 15%;
+                    height: 100%;
+                    padding: 0.4vw;
+                    margin-right: -5px;
+                    path{
+                        fill: $Branco;
+                    }
+                }
+                span{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+                    width: 85%;
+                    height: 100%;
+                    padding: 0.75vh 0 0.25vh 0;
+                }
+                &:hover{
+                    transform: translateY(-5px);
+                }
+            }
+        }
+        .linksBlock{
+            width: 100%;
+            height: 90%;
+            display: flex;
+            .linksAtivos, .LinkDesativados{
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                h2{
+                    color: $Branco;
+                    font-size: 2.5vw;
+                    font-weight: 700;
+                    height: 8%;
+                    width: 100%;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 1vh 0 0 0;
+                }
+                .links{
+                    height: 92%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    padding: 1vh 0;
+                    .BannerLink{
+                        width: 75%;
+                        height: 25vh;
+                        display: flex;
+                        justify-content: center;
+                        position: relative;
+                        margin: 6vh 0 2vh;
+                        .banner{
+                            width: 100%;
+                            height: 75%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: relative;
+                            z-index: 99;
+                            h3{
+                                position: absolute;
+                                top: -3.5vh;
+                                font-size: 1.4vw;
+                                font-weight: 700;
+                                color: $Azul;
+                            }
+                            img{
+                                height: 100%;
+                                width: 100%;
+                                object-fit: fill;
+                                border-radius: 2vw;
+                                margin: 0 3.5vw;
+                            }
+                        }
+                        #EditLink{
+                            z-index: 10;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: absolute;
+                            padding: 0.5vh 0 0.25vh 0;
+                            width: 10vw;
+                            height: 20%;
+                            left: 8vw;
+                            bottom: 7vh;
+                            background: none;
+                            border: solid $Branco 1px;
+                            border-radius: 1.5vw;
+                            color: $Branco;
+                            font-size: 1.25vw;
+                            font-weight: 800;
+                            transition: ease-in-out 0.75s;
+                            background: $Azul;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0.75vh 0 0.25vh 0;
+                        }
+                        #DeletLink{
+                            z-index: 10;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: absolute;
+                            padding: 0.5vh 0 0.25vh 0;
+                            width: 10vw;
+                            height: 20%;
+                            right: 8vw;
+                            bottom: 7vh;
+                            background: none;
+                            border: solid $Branco 1px;
+                            border-radius: 1.5vw;
+                            color: $Branco;
+                            font-size: 1.25vw;
+                            font-weight: 800;
+                            transition: ease-in-out 0.75s;
+                            background: $VermelhoEscuro;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0.75vh 0 0.25vh 0;
+                        }
+                        &:hover{
+                            #EditLink{
+                                bottom: 0;
+                            }
+                            #DeletLink{
+                                bottom: 0;
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    #ModalLogout{
+        padding: 0;
+        margin: 0;
+        .ModalLogout {
+            border: solid $Branco 2px;
+            border-radius: 2vw;
+            background-color: $Azul;
+            color: $Branco;
+            max-width: 100vw;
+            width: 35vw;
+            height: 30vh;
+            margin: 15vh auto;
+            .modal-content {
+                width: 100%;
+                height: 100%;
+                background: none;
+                border-radius: 0;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                .CloseBtn {
+                    width: 3vw;
+                    height: 3vw;
+                    position: absolute;
+                    right: -1.5vw;
+                    top: -1.5vw;
+                    border: none;
+                    background-color: $VermelhoEscuro;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    z-index: 10 !important;
+                    svg {
+                        width: 50%;
+                        height: 50%;
+                    }
+                }
+    
+                .modal-body {
+                    width: 100%;
+                    height: 75%;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    h5 {
+                        font-size: 2vw;
+                        font-weight: 800;
+                    }
+                    h6 {
+                        font-size: 1.25vw;
+                        font-weight: 500;
+                        margin-top: 1vw;
+                    }
+                }
+    
+                .modal-footer {
+                    border: none;
+                    width: 100%;
+                    height: 25%;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+    
+                    a, button {
+                        border: solid 1px $Branco;
+                        padding: 0.75vh 2vw 0.25vh;
+                        border-radius: 2vw;
+                        margin: 0 0.5vw;
+                        background: none;
+                        color: $Branco;
+                        font-size: 1.25vw;
+                        font-weight: 500;
+                    }
+    
+                    .LogoutBtnModal {
+                        background: $VermelhoEscuro;
+                        border: none;
+                    }
+    
+                    .SalvarBtnModal {
+                        background: $Azul;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+
+    #ModalEditPerfil{
+        padding: 0;
+        margin: 0;
+        .ModalEditPerfil {
+            border: solid $Branco 2px;
+            border-radius: 2vw;
+            background-color: $Azul;
+            color: $Branco;
+            max-width: 100vw;
+            width: 50vw;
+            height: 85vh;
+            margin: 7vh auto;
+    
+            .modal-content {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                background: none;
+                border-radius: 0;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .CloseBtn {
+                    width: 3vw;
+                    height: 3vw;
+                    position: absolute;
+                    right: -1.5vw;
+                    top: -1.5vw;
+                    border: none;
+                    background-color: $VermelhoEscuro;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    z-index: 10 !important;
+    
+                    svg {
+                        width: 50%;
+                        height: 50%;
+                    }
+                }
+
+                .modal-body {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    .MenuAdm{
+                        width: 85%;
+                        height: 10%;
+                        display: flex;
+                        align-items: end;
+                        justify-content: center;
+                        border-bottom: 1px solid $Branco;
+                        position: relative;
+                        a{
+                            height: 90%;
+                            margin: 1vh 0.5vw;
+                            padding: 0 0.5vw;
+                            display: flex;
+                            align-items: end;
+                            justify-content: center;
+                            color: $Branco;
+                            font-weight: 700;
+                            font-size: 1.25vw;
+                            &:hover{
+                                color: $Cinza;
+                            }
+                        }
+                        ::before{
+                            content: '';
+                            position: absolute;
+                            background: $Branco;
+                            height: 75%;
+                            width: 0.15vw;
+                            bottom: 0;
+                            left: 37.5%;
+                        }
+                        ::after{
+                            content: '';
+                            position: absolute;
+                            background: $Branco;
+                            height: 75%;
+                            width: 0.15vw;
+                            bottom: 0;
+                            right: 36.5%;
+                        }
+                    }
+                    .TabsAdm{
+                        width: 100%;
+                        height: 90%;
+                        #ContaDados, #EmailTroca, #SenhaTroca{
+                            width: 100%;
+                            height: 100%;
+                            padding: 1vw;
+                            .editDados, .emailEdit, .senhaEdit{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                position: relative;
+                                width: 100%;
+                                height: 100%;
+                                h4 {
+                                    text-align: center;
+                                    width: 100%;
+                                    font-size: 2.5vw;
+                                    font-weight: 700;
+                                    margin: 4vh 0;
+                                }
+                                .BlockBox {
+                                    border: solid $Branco 1px;
+                                    width: 75%;
+                                    height: 7vh;
+                                    display: flex;
+                                    position: relative;
+                                    border-radius: 2vw;
+                                    margin: 1vh 0 3vh;
+                                    input {
+                                        width: 100%;
+                                        border: none;
+                                        font-size: 1.5vw;
+                                        font-weight: 200;
+                                        color: $Branco;
+                                        background: none;
+                                        outline: none;
+                                        padding: 1.75vh 2vw 1vh;
+                                    }
+                                    span {
+                                        position: absolute;
+                                        left: 1.5vw;
+                                        top: 1.5vh;
+                                        font-size: 1.5vw;
+                                        color: $Branco;
+                                        font-weight: 400;
+                                        transition: 0.5s;
+                                        pointer-events: none;
+                                    }
+                                    .lengthInput{
+                                        position: absolute;
+                                        top: 0;
+                                        right: 100%;
+                                        width: 5vw;
+                                        height: 100%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        color: $Branco;
+                                        font-size: 1.25vw;
+                                        font-weight: 800;
+                                        margin: 0;
+                                        padding: 0;
+                                    }
+                                    .senhaIcon{
+                                        opacity: 0;
+                                        font-size: 1.75vw;
+                                        margin-top: 1.5vh;
+                                        margin-right: 0;
+                                        transition: ease-in-out 0.5s;
+                                        color: $Branco;
+                                    }
+                                }
+                                .BlockBox input:focus~span,
+                                input:valid~span{
+                                    transform: translate(0, -2.75vh);
+                                    font-size: 1.1vw;
+                                    color: $Branco;
+                                    background-color: $Azul;
+                                }
+                                .senhaInput{
+                                    &:hover{
+                                        .senhaIcon{
+                                            opacity: 1;
+                                            font-size: 1.75vw;
+                                            margin-right: 1vw;
+                                            transition: ease-in-out 0.5s;
+                                        }
+                                    }
+                                }
+                                .SalvarBtnModal {
+                                    position: absolute;
+                                    bottom: 2vh;
+                                    padding: 0.75vh 2vw 0.25vh;
+                                    border-radius: 2vw;
+                                    margin: 0 0.5vw;
+                                    color: $Branco;
+                                    font-size: 1.5vw;
+                                    font-weight: 500;
+                                    background: $Ouro;
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                #msgErros{
+                    position: absolute;
+                    bottom: 10vh;
+                    width: 75%;
+                    height: 20vh;
+                    overflow: auto;
+                    text-align: center;
+                    font-weight: 800;
+                    font-size: 1.25vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+    
+        }
+    }
+
+    #ModalDados{
+        padding: 0;
+        margin: 0;
+        .ModalDados{
+            border: solid $Branco 2px;
+            border-radius: 2vw;
+            background-color: $Azul;
+            color: $Branco;
+            max-width: 100vw;
+            width: 50vw;
+            height: 85vh;
+            margin: 7vh auto;
+            .modal-content {
+                width: 100%;
+                height: 100%;
+                background: none;
+                border-radius: 0;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                .CloseBtn {
+                    width: 3vw;
+                    height: 3vw;
+                    position: absolute;
+                    right: -1.5vw;
+                    top: -1.5vw;
+                    border: none;
+                    background-color: $VermelhoEscuro;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    z-index: 10 !important;
+    
+                    svg {
+                        width: 50%;
+                        height: 50%;
+                    }
+                }
+    
+                .modal-body {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+    
+                    #FormDados{
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 5vh 2vw;
+                        h4 {
+                            text-align: center;
+                            width: 100%;
+                            font-size: 3vw;
+                            font-weight: 800;
+                            margin: 0;
+                            padding: 1vh 0;
+                        }
+    
+                        .bannerImgEdit{
+                            width: 100%;
+                            height: 20vh;
+                            display: flex;
+                            position: relative;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 5vh 0 8vh;
+                            input{
+                                opacity: 0;
+                                position: absolute;
+                            }
+                            .BannerIcon{
+                                width: 75%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background: $Cinza;
+                                border-radius: 1.5vw;
+                                padding: 2vh 0;
+                            }
+                            .imgBannerFull{
+                                object-fit: cover;
+                                padding: 0;
+                            }
+                            .editPen{
+                                width: 3.5vw;
+                                padding: 0.75vw;
+                                border-radius: 50%;
+                                position: absolute;
+                                border: solid $Branco 1px;
+                                background: $AzulEscuro;
+                                bottom: -4vh;
+                                path{
+                                    fill: $Branco;
+                                }
+                            }
+                            span{
+                                position: absolute;
+                                top: -0.5vh;
+                                background: $Azul;
+                            }
+                        }
+    
+                        .BlockBox {
+                            border: solid $Branco 1px;
+                            width: 80%;
+                            height: 6vh;
+                            display: flex;
+                            position: relative;
+                            border-radius: 1.5vw;
+                            margin: 2vh 0;
+                            input {
+                                width: 100%;
+                                border: none;
+                                font-size: 1vw;
+                                font-weight: 200;
+                                color: $Branco;
+                                background: none;
+                                outline: none;
+                                padding: 1vh 1.5vw;
+                            }
+                            span {
+                                position: absolute;
+                                left: 1vw;
+                                top: 1.5vh;
+                                font-size: 1.25vw;
+                                color: $Branco;
+                                font-weight: 800;
+                                transition: 0.5s;
+                                pointer-events: none;
+                            }
+                            .lengthInput{
+                                position: absolute;
+                                top: 0;
+                                right: 103%;
+                                width: 3.25vw;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: $Branco;
+                                font-size: 1vw;
+                                font-weight: 800;
+                                margin: 0;
+                                padding: 0;
+                            }
+                        }
+    
+                        .BlockBox input:focus~span,
+                        input:valid~span{
+                            transform: translate(0, -2.8vh);
+                            font-size: 1.1vw;
+                            color: $Branco;
+                            background-color: $Azul;
+                        }
+    
+                        .checkBoxLinkAtivo{
+                            position: absolute;
+                            font-size: 1.25vw;
+                            bottom: 0;
+                            left: 1vw;
+                        }
+    
+                        .SalvarBtnModal {
+                            position: absolute;
+                            bottom: 1.5vh;
+                            right: 0.5vw;
+                            padding: 0.75vh 2vw 0.25vh;
+                            border-radius: 2vw;
+                            margin: 0 0.5vw;
+                            color: $Branco;
+                            font-size: 1.5vw;
+                            font-weight: 500;
+                            background: $Ouro;
+                            border: none;
+                        }
+                    }
+    
+                }
+                
+                .msgErros{
+                    position: absolute;
+                    bottom: 0;
+                    width: 50%;
+                    height: 16vh;
+                    overflow: auto;
+                    text-align: center;
+                    font-weight: 800;
+                    font-size: 1.25vw;
+                }
+               
+            }
+        }
+    }
+
+    #ModalDeletLink{
+        padding: 0;
+        margin: 0;
+        .ModalDeletLink {
+            border: solid $Branco 2px;
+            border-radius: 2vw;
+            background-color: $Azul;
+            color: $Branco;
+            max-width: 100vw;
+            width: 40vw;
+            height: 40vh;
+            margin: 15vh auto;
+            .modal-content {
+                width: 100%;
+                height: 100%;
+                background: none;
+                border-radius: 0;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                .CloseBtn {
+                    width: 3vw;
+                    height: 3vw;
+                    position: absolute;
+                    right: -1.5vw;
+                    top: -1.5vw;
+                    border: none;
+                    background-color: $VermelhoEscuro;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    z-index: 10 !important;
+                    svg {
+                        width: 50%;
+                        height: 50%;
+                    }
+                }
+    
+                .modal-body {
+                    width: 100%;
+                    height: 75%;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    h4 {
+                        margin-top: 9vh;
+                        text-align: center;
+                        font-size: 2vw;
+                        font-weight: 700;
+                    }
+                    h5 {
+                        text-align: center;
+                        font-size: 1.5vw;
+                        font-weight: 500;
+                        margin-top: 2vh;
+                    }
+                    button{
+                        border: solid 1px $Branco;
+                        background: none;
+                        position: absolute;
+                        border-radius: 2vw;
+                        color: $Branco;
+                        font-size: 1.5vw;
+                        font-weight: 500;
+                    }
+                    .CancelarBtnModal{
+                        bottom: 1.5vh;
+                        left: 6vw;
+                        background: $Azul;
+                        padding: 0.75vh 2vw 0.25vh;
+
+                    }
+                    .DeletBtnModal{
+                        bottom: 1.5vh;
+                        right: 6vw;
+                        background: $Vermelho;
+                        padding: 0.75vh 2vw 0.25vh;
+                    }
+                   
+                }
+
+                .msgErrosDelet{
+                    position: absolute;
+                    bottom: 8vh;
+                    width: 75%;
+                    height: 10vh;
+                    overflow: auto;
+                    text-align: center;
+                    font-weight: 800;
+                    font-size: 1.25vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+}

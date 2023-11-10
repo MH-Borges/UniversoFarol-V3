@@ -1,0 +1,281 @@
+@font-face {
+  font-family: "Now";
+  font-weight: 100;
+  src: local("Now Thin"), url("../assets/font/Now-Thin.woff") format("woff");
+}
+@font-face {
+  font-family: "Now";
+  font-weight: 300;
+  src: local("Now Light"), url("../assets/font/Now-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "Now";
+  font-weight: 500;
+  src: local("Now Regular"), url("../assets/font/Now-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Now";
+  font-weight: 600;
+  src: local("Now Medium"), url("../assets/font/Now-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Now";
+  font-weight: 800;
+  src: local("Now Bold"), url("../assets/font/Now-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Now";
+  font-weight: 900;
+  src: local("Now Black"), url("../assets/font/Now-Black.woff") format("woff");
+}
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+  list-style: none;
+}
+
+.hide {
+  opacity: 0;
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.5vw;
+  background: #03173C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0A2749;
+  border-radius: 5vw;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Now", sans-serif;
+  color: #FFFFFF;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+body main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body main section {
+  width: 75%;
+  height: 100vh;
+  z-index: 5;
+}
+.linksPage {
+  position: relative;
+  overflow-x: hidden;
+  height: auto;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: #03173C;
+}
+.linksPage .BackgroundLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 150vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.linksPage .BackgroundLinks img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+.linksPage .BackgroundLinks .BackMetade {
+  width: 100%;
+  height: 50vh;
+}
+.linksPage main {
+  z-index: 2;
+  width: 100%;
+  height: 150vh;
+  align-items: center;
+}
+.linksPage main .LogoLinks {
+  width: 7vw;
+  margin: 6vh 0 3vh 0;
+}
+.linksPage main h1 {
+  width: 90%;
+  font-size: 2vw;
+  text-align: center;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.linksPage main h2 {
+  width: 90%;
+  text-align: center;
+  font-size: 1.1vw;
+  font-weight: 800;
+  color: #CACACA;
+}
+.linksPage main .icons_Links {
+  width: 90%;
+  margin: 5vh 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.linksPage main .icons_Links a {
+  width: 4vw;
+  height: 4.5vh;
+  margin: 1vh 1.25vw;
+}
+.linksPage main .icons_Links a svg {
+  width: 100%;
+  height: 100%;
+  transition: ease-in-out 1s;
+  fill: none;
+}
+.linksPage main .icons_Links a svg path {
+  stroke-width: 4px;
+}
+.linksPage main .icons_Links a:hover svg {
+  transform: rotateY(360deg);
+}
+.linksPage main .icons_Links a:hover svg path {
+  fill: #FFFFFF;
+}
+.linksPage main .icons_Links a:hover svg .playYoutube {
+  fill: #0A2749;
+}
+.linksPage main .icons_Links a:hover svg .emailIcon {
+  stroke: #0A2749;
+  stroke-width: 10px;
+}
+.linksPage main h4 {
+  font-size: 1.5vw;
+  font-weight: 500;
+  text-align: center;
+  width: 90%;
+  padding: 0 20vw;
+}
+.linksPage main .swiper {
+  margin: 6vh 0;
+  width: 100vw;
+  height: 75vh;
+  overflow: visible;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.linksPage main .swiper .swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+}
+.linksPage main .swiper .swiper-wrapper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s;
+  border-radius: 4vw;
+  overflow: hidden;
+}
+.linksPage main .swiper .swiper-wrapper .swiper-slide a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.linksPage main .swiper .swiper-wrapper .swiper-slide a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.linksPage main .swiper .swiper-wrapper .swiper-slide-active {
+  width: 75vw !important;
+  height: 75vh !important;
+  transform: translateZ(0) translateX(16.5%) !important;
+  z-index: 1;
+}
+.linksPage main .swiper .swiper-wrapper .swiper-slide-prev {
+  transform: translateZ(0) translateX(29%) scale(0.75) !important;
+  z-index: 0;
+}
+.linksPage main .swiper .swiper-wrapper .swiper-slide-next {
+  transform: translateZ(0) translateX(-4%) scale(0.75) !important;
+  z-index: 0;
+}
+.linksPage main .swiper .swiper-button-prev, .linksPage main .swiper .swiper-button-next {
+  width: 3.25vw;
+  height: 11vh;
+  z-index: 3;
+  background-color: #CACACA;
+  border-radius: 1vw;
+}
+.linksPage main .swiper .swiper-button-prev::after, .linksPage main .swiper .swiper-button-next::after {
+  color: #0A2749;
+  font-size: 2.25vw;
+}
+.linksPage main .swiper .swiper-button-prev {
+  left: 12.7%;
+}
+.linksPage main .swiper .swiper-button-next {
+  right: 13%;
+}
+.linksPage main .swiper .swiper-pagination {
+  width: 75%;
+  height: 1vh;
+  top: 103% !important;
+  left: 12.5%;
+  border-radius: 1vw;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.linksPage main .swiper .swiper-pagination .swiper-pagination-progressbar-fill {
+  background-color: #FF6D2A;
+  border-radius: 2vw;
+}
+.linksPage footer {
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 7.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.linksPage footer a, .linksPage footer p {
+  font-size: 0.9vw;
+  font-weight: 600;
+  margin: 0 5vw;
+  color: #FFFFFF;
+}
+.linksPage footer a:hover {
+  color: #FF6D2A;
+}
+.linksPage footer::before {
+  content: "";
+  width: 75%;
+  height: 0.3vh;
+  background-color: #FF6D2A;
+  position: absolute;
+  top: 0;
+}/*# sourceMappingURL=style.css.map */

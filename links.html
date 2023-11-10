@@ -1,0 +1,119 @@
+<?php
+session_start();
+require_once("./sistema/conexao.php");
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Farol | Página de links</title>
+    <link rel="icon" href="assets/icon.png" />
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- SVGInject -->
+    <script src="js/svg-inject.min.js"></script>
+    <!-- Swiperjs -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Main files -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    
+</head>
+
+<body class="linksPage">
+    <div class="BackgroundLinks">
+        <img src="assets/estrelas.png" alt="Fundo estrelado">
+        <img class="BackMetade" src="assets/estrelas_Metade.png" alt="Fundo estrelado">
+    </div>
+    <main>
+        <img class="LogoLinks" src="assets/logo_Bola.png" alt="Logo Universo farol">
+        <h1>UNIVERSO FAROL</h1>
+        <h2>@universofarol</h2>
+        <div class="icons_Links">
+            <a href="https://google.com" target="_blank">
+                <img src="assets/icones/Instagram.svg" onload="SVGInject(this)">
+            </a>
+            <a href="https://google.com" target="_blank">
+                <img src="assets/icones/Behance.svg" onload="SVGInject(this)">
+            </a>
+            <a href="https://google.com" target="_blank">
+                <img src="assets/icones/E-mail.svg" onload="SVGInject(this)">
+            </a>
+            <a href="https://google.com" target="_blank">
+                <img src="assets/icones/WhatsApp.svg" onload="SVGInject(this)">
+            </a>
+            <a href="https://google.com" target="_blank">
+                <img src="assets/icones/Youtube.svg" onload="SVGInject(this)">
+            </a>
+            <a href="https://google.com" target="_blank">
+                <img src="assets/icones/Tiktok.svg" onload="SVGInject(this)">
+            </a>
+            <a href="https://google.com" target="_blank">
+                <img src="assets/icones/Linkedin.svg" onload="SVGInject(this)">
+            </a>
+        </div>
+        <h4>Agencia de criação com foco em extrair a essência da sua marca e com personalidade trazê-la para o meio digital!</h4>
+
+        <!-- Slider main container -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Insta.jpg" alt="Banner 01"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Site.jpg" alt="Banner 02"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Portfolio.jpg" alt="Banner 03"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Serviços.jpg" alt="Banner 04"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Reunião.jpg" alt="Banner 05"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Orçamento.jpg" alt="Banner 06"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Analise.jpg" alt="Banner 07"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Tiktok.jpg" alt="Banner 08"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Behance.jpg" alt="Banner 09"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Linkedin.jpg" alt="Banner 10"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Youtube.jpg" alt="Banner 11"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Feedback.jpg" alt="Banner 12"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Avaliação_Google.jpg" alt="Banner 13"></a></div>
+                <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_UF_contrata.jpg" alt="Banner 14"></a></div>
+            </div>
+        
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- <div class="mobileBanner">
+            <div class="banners_mobile">
+                <a href="" target="_blank"><img src="assets/banners/banner_Site_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Insta_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Portfolio_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Serviços_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Reunião_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Orçamento_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Analise_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Tiktok_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Behance_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Linkedin_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Youtube_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Feedback_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_Avaliação_Google_Mobile.png" alt=""></a>
+                <a href="" target="_blank"><img src="assets/banners/banner_UF_contrata_Mobile.png" alt=""></a>
+            </div>
+        </div> -->
+    </main>
+    
+    <footer>
+        <a href="https://google.com" target="_blank">
+            Contato@universofarol.com.br
+        </a>
+        <p>
+            © 2023 | Universo Farol
+        </p>
+    </footer>
+
+</body>
+</html>
