@@ -29,10 +29,10 @@ require_once("./sistema/conexao.php");
 
 <body class="linksPage">
     <div class="BackgroundLinks">
-        <img src="assets/estrelas.png" alt="Fundo estrelado">
+        <img class="BackPadrao" src="assets/estrelas.png" alt="Fundo estrelado">
         <img class="BackMetade" src="assets/estrelas_Metade.png" alt="Fundo estrelado">
     </div>
-    <main>
+    <main class="main">
         <img class="LogoLinks" src="assets/logo_Bola.png" alt="Logo Universo farol">
         <h1>UNIVERSO FAROL</h1>
         <h2>@universofarol</h2>
@@ -61,7 +61,6 @@ require_once("./sistema/conexao.php");
         </div>
         <h4>Agencia de criação com foco em extrair a essência da sua marca e com personalidade trazê-la para o meio digital!</h4>
 
-        <!-- Slider main container -->
         <div class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><a href="https://google.com" target="_blank"><img src="assets/banners/banner_Insta.jpg" alt="Banner 01"></a></div>
@@ -86,24 +85,22 @@ require_once("./sistema/conexao.php");
             <div class="swiper-pagination"></div>
         </div>
 
-        <!-- <div class="mobileBanner">
-            <div class="banners_mobile">
-                <a href="" target="_blank"><img src="assets/banners/banner_Site_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Insta_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Portfolio_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Serviços_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Reunião_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Orçamento_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Analise_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Tiktok_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Behance_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Linkedin_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Youtube_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Feedback_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_Avaliação_Google_Mobile.png" alt=""></a>
-                <a href="" target="_blank"><img src="assets/banners/banner_UF_contrata_Mobile.png" alt=""></a>
-            </div>
-        </div> -->
+        <div class="mobileBanner">
+            <a href="" target="_blank"><img src="assets/banners/banner_Site_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Insta_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Portfolio_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Serviços_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Reunião_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Orçamento_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Analise_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Tiktok_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Behance_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Linkedin_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Youtube_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Feedback_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_Avaliação_Google_Mobile.png" alt=""></a>
+            <a href="" target="_blank"><img src="assets/banners/banner_UF_contrata_Mobile.png" alt=""></a>
+        </div>
     </main>
     
     <footer>

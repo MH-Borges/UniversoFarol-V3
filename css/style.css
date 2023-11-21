@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Now";
   font-weight: 100;
@@ -53,6 +54,15 @@
   border-radius: 5vw;
 }
 
+@keyframes blink {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
 body {
   display: flex;
   flex-wrap: wrap;
@@ -61,6 +71,41 @@ body {
   width: 100%;
   justify-content: center;
   position: relative;
+}
+body .blinking-star {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: 2;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  position: relative;
+  z-index: 0;
+}
+body .star {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: 2;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  position: relative;
+  width: 1.5vw;
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+body .star::after, body .star::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "✦";
+}
+body .star::after {
+  background: #FFFFFF;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 body main {
   width: 100%;
@@ -278,4 +323,166 @@ body main section {
   background-color: #FF6D2A;
   position: absolute;
   top: 0;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*--------------------------------- Responsive Media Quaries -----------------------------*/
+/* MOBILE */
+@media only screen and (max-width: 479px) {
+  .linksPage {
+    position: relative;
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-color: #03173C;
+  }
+  .linksPage main {
+    z-index: 2;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    align-items: center;
+    position: relative;
+  }
+  .linksPage main .galaxiaBack {
+    z-index: 2;
+    width: 100%;
+    opacity: 0.25;
+    position: absolute;
+    mix-blend-mode: screen;
+  }
+  .linksPage main .farolBack {
+    z-index: 3;
+    width: 100%;
+    opacity: 0.4;
+    position: absolute;
+  }
+  .linksPage main .LogoLinks {
+    width: 28vw;
+    margin: 4vh 0 3vh;
+    z-index: 5;
+  }
+  .linksPage main h1 {
+    order: 1;
+    z-index: 5;
+    width: 90%;
+    font-size: 7vw;
+    text-align: center;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .linksPage main h2 {
+    order: 2;
+    z-index: 5;
+    width: 90%;
+    text-align: center;
+    font-size: 5vw;
+    font-weight: 800;
+    color: #CACACA;
+  }
+  .linksPage main .icons_Links {
+    order: 4;
+    z-index: 5;
+    width: 100%;
+    height: 6vh;
+    margin: 3vh 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .linksPage main .icons_Links a {
+    width: 15vw;
+    height: 100%;
+    margin: 0 2.5vw;
+  }
+  .linksPage main .icons_Links a svg {
+    width: 100%;
+    height: 100%;
+    transition: ease-in-out 1s;
+    fill: none;
+  }
+  .linksPage main .icons_Links a svg path {
+    stroke-width: 4px;
+  }
+  .linksPage main .icons_Links a:hover svg {
+    transform: rotateY(360deg);
+  }
+  .linksPage main .icons_Links a:hover svg path {
+    fill: #FFFFFF;
+  }
+  .linksPage main .icons_Links a:hover svg .playYoutube {
+    fill: #0A2749;
+  }
+  .linksPage main .icons_Links a:hover svg .emailIcon {
+    stroke: #0A2749;
+    stroke-width: 10px;
+  }
+  .linksPage main h4 {
+    order: 3;
+    z-index: 5;
+    font-size: 3.75vw;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    padding: 2vh 5vw;
+  }
+  .linksPage main .mobileBanner {
+    order: 5;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10vh;
+  }
+  .linksPage main .mobileBanner a {
+    margin: 2vh 0;
+    width: 90%;
+  }
+  .linksPage main .mobileBanner a img {
+    width: 100%;
+    height: auto;
+  }
+  .linksPage footer {
+    z-index: 5;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 7.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  .linksPage footer a, .linksPage footer p {
+    width: 100%;
+    font-size: 3.5vw;
+    font-weight: 600;
+    margin: 0;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  .linksPage footer a:hover {
+    color: #FF6D2A;
+  }
+  .linksPage footer::before {
+    content: "";
+    width: 25%;
+    height: 0.6vh;
+    background-color: #FF6D2A;
+    position: absolute;
+    top: 45%;
+    border-radius: 2vw;
+  }
+}
+/* Landscape */
+/* TABLET */
+/* Landscape *//*# sourceMappingURL=style.css.map */
