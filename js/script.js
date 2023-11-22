@@ -30,7 +30,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
       Blinkstar.style.width = stSize + "px";
       Blinkstar.style.backgroundColor = "#ffffff";
       Blinkstar.style.position = "absolute";
-      Blinkstar.style.top = yPos > 96 ? 94 + "%" : yPos + "%";
+      Blinkstar.style.top = yPos > 99 ? 98 + "%" : yPos + "%";
       Blinkstar.style.left = xPos > 92 ? 85 + "%" : xPos + "%";
       Blinkstar.style.borderRadius = "50%";
       document.body.appendChild(Blinkstar);
@@ -46,7 +46,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
       var yPos = Math.random() * 100;
       star.style.fontSize = stSize + "vw";
       star.style.position = "absolute";
-      star.style.top = yPos > 96 ? 94 + "%" : yPos + "%";
+      star.style.top = yPos > 99 ? 98 + "%" : yPos + "%";
       star.style.left = xPos > 92 ? 85 + "%" : xPos + "%";
       document.body.appendChild(star);
       star.classList.add("star");
@@ -72,7 +72,6 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
       setInterval(blinkingStars, 30);
       setInterval(Stars, 15);
-      
     }
     else{
       document.querySelector('.mobileBanner').remove();

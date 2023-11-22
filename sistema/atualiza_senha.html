@@ -1,7 +1,7 @@
 <?php
     session_start();
     ob_start();
-    require_once("conexao.php");
+    require_once("configs/conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NH inteligencia empresarial | Recupera Senha</title>
-    <link rel="icon" href="../../assets/logos/Lg_laranja.png" />
+    <title>Universo Farol | Recupera Senha</title>
+    <link rel="icon" href="../assets/icon_Logo.png" />
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -33,11 +33,10 @@
 
 <body class="recuperaSenha">
 
-    <div class="Background">
-        <img class="Padrao" src="../assets/Padronagem.png">
-    </div>
-
     <main>
+        <img class="Back_Login" src="../assets/Background_Login.webp" alt="Background">
+        <a class="HomeLink" href="../index.html" ><img src="../assets/icon_Logo.png" alt="Logo"></a>
+
         <section class="recuperaSenhaBlock">
             <?php
                 $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
@@ -87,14 +86,14 @@
                 <div class="BlockBox senhaInput">
                     <input type="password" name="novaSenhaUser" id="novaSenhaUser" maxlength="25" required>
                     <span>Digite sua nova senha:</span>
-                    <i id="password_toggle" onclick="passwordToggle()" class="senhaIcon fa fa-eye-slash"></i>
+                    <i id="password_toggle" onclick="setupPasswordToggle('novaSenhaUser', 'password_toggle')" class="senhaIcon fa fa-eye-slash"></i>
                     <p class="lengthInput ResetSenhaInput"></p>
                 </div>
 
                 <div class="BlockBox senhaInputNew">
                     <input type="password" name="repetNovaSenhaUser" id="repetNovaSenhaUser" maxlength="25" required>
                     <span>Digite novamente sua nova senha:</span>
-                    <i id="password_toggle_again" onclick="passwordToggleNew()" class="senhaIconAgain fa fa-eye-slash"></i>
+                    <i id="password_toggle_again" onclick="setupPasswordToggle('repetNovaSenhaUser', 'password_toggle_again')" class="senhaIconAgain fa fa-eye-slash"></i>
                     <p class="lengthInput repetResetSenhaInput"></p>
                 </div>
 

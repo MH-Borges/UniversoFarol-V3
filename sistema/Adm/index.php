@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../conexao.php");
+require_once("../configs/conexao.php");
 
 $emailUserSessao = @$_SESSION['email_user'];
     
@@ -17,8 +17,8 @@ if(@count($dados) > 0){
     
     setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
     $date = strftime(" %B de %Y", strtotime($dataRegistroAdm));
-
-} else {
+} 
+else {
     $_SESSION['msg_perfilInvalido'] = "<div class='msgPerfilInvalido' style='left: 1.5vw !important; background:#CC101D;'>Usuario não encontrado!</div>";
     header("Location: ../../links.php");
 }
@@ -33,8 +33,8 @@ if(@count($dados) > 0){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NH inteligencia empresarial | Administrativo</title>
-    <link rel="icon" href="../../assets/NH_Logo.png" />
+    <title>Universo Farol | Administrativo</title>
+    <link rel="icon" href="../../assets/icon_Logo.png" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!-- bootstrap -->
@@ -158,7 +158,7 @@ if(@count($dados) > 0){
                 </div>
                 <div class="modal-footer">
                     <button class="CancelaBtnModal" type="button" data-dismiss="modal">Cancelar</button>
-                    <a href="../logout.php" class="LogoutBtnModal" type="button">Sair</a>
+                    <a href="../configs/logout.php" class="LogoutBtnModal" type="button">Sair</a>
                 </div>
             </div>
         </div>

@@ -1,8 +1,7 @@
-
 <?php
 @session_start();
 @ob_start();
-require_once("conexao.php");
+require_once("configs/conexao.php");
 
 //VERIFICAR SE EXISTE ALGUM CADASTRO NO BANCO, SE NÃO TIVER CADASTRAR O USUÁRIO ADMINISTRADOR
 $res = $pdo->query("SELECT * FROM usuarios");
@@ -19,9 +18,7 @@ if(@count($dados) == 0){
 if(@$_SESSION['id_user'] != null && @$_SESSION['nivel_user'] == 'adm'){
     echo "<script> window.location='./adm'</script>";
 }
-
-?> 
-
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -30,8 +27,9 @@ if(@$_SESSION['id_user'] != null && @$_SESSION['nivel_user'] == 'adm'){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NH inteligencia empresarial | Login</title>
-    <link rel="icon" href="../assets/NH_Logo.png" />
+    <title>Universo Farol | Login</title>
+    <link rel="icon" href="../assets/icon_Logo.png" />
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!-- bootstrap -->
@@ -47,27 +45,28 @@ if(@$_SESSION['id_user'] != null && @$_SESSION['nivel_user'] == 'adm'){
     <link rel="stylesheet" href="../css/style.css">
 
     <script defer src="js/script.js"></script>
-
     <script src="../js/svg-inject.min.js"></script>
 </head>
 
 <body class="Login">
-
-    <div class="Background">
-        <img class="Padrao" src="../assets/Padronagem.png">
-    </div>
 
     <?php
         if (isset($_SESSION['msg_rec'])) {
             echo $_SESSION['msg_rec'];
             unset($_SESSION['msg_rec']);
         }
-    ?>
+    ?> 
 
     <main>
+        <img class="Back_Login" src="../assets/Background_Login.webp" alt="Background">
+        <a class="HomeLink" href="../index.html" ><img src="../assets/icon_Logo.png" alt="Logo"></a>
+        
         <section class="login_sreen">
-            <form class="LoginBox" action="autenticar.php" method="post" name="login">
-                <h2>Login NH</h2>
+            <img src="../assets/matheus.png" alt="Matheus Chibi">
+            <img src="../assets/julia.png" alt="Julia Chibi">
+
+            <form class="LoginBox" action="configs/autenticar.php" method="post" name="login">
+                <h2>Login <br> Universo Farol</h2>
 
                 <div class="BlockBox">
                     <input type="text" name="emailLogin" id="emailLogin" required>
@@ -77,7 +76,7 @@ if(@$_SESSION['id_user'] != null && @$_SESSION['nivel_user'] == 'adm'){
                 <div class="BlockBox senhaInput">
                     <input type="password" name="senhaLogin" id="senhaLogin" required>
                     <span>Senha:</span>
-                    <i id="password_toggle" onclick="passwordToggle()" class="senhaIcon fa fa-eye-slash"></i>
+                    <i id="password_toggle" onclick="setupPasswordToggle('senhaLogin', 'password_toggle')" class="senhaIcon fa fa-eye-slash"></i>
                 </div>
 
                 <button type="submit" id="loginBt">Conectar</button>

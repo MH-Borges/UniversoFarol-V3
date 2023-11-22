@@ -16,15 +16,14 @@
 		$_SESSION['nome_user'] = $dados[0]['nome_Completo'];
 		$_SESSION['email_user'] = $dados[0]['email'];
 		$_SESSION['nivel_user'] = $dados[0]['nivel'];
-
 		if($_SESSION['nivel_user'] == 'adm'){
-			echo "<script language='javascript'> window.location='./Adm' </script>";
+			echo "<script language='javascript'> window.location='../Adm' </script>";
 		}
 
 	}
 	else{
 		echo "<script language='javascript'> window.alert('Dados Incorretos!') </script>";
-		echo "<script language='javascript'> window.location='index.php' </script>";
+		echo "<script language='javascript'> window.location='../index.php' </script>";
 	}
 	
 ?>

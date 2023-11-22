@@ -24,11 +24,11 @@ if(@count($dados) > 0){
     $res->bindValue(":id", $idUser);
     $res->execute();
 
-    $link = "https://nhinteligencia.com.br/sistema/atualiza_senha.php?chave=$chave_recuperar_senha";
+    $link = "https://www.universofarol.com.br/sistema/atualiza_senha.php?chave=$chave_recuperar_senha";
     
    //ENVIAR O EMAIL COM A SENHA
     $destinatario = $email;
-    $assunto = 'NH Inteligencia Empresarial - Recuperação de Senha';
+    $assunto = 'Universo Farol - Recuperação de Senha';
     $mensagem = utf8_decode('Prezado(a) ' . $dados[0]['nome_Completo'] . ".<br><br>Você solicitou alteração de senha para o usuario" . $dados[0]['email'] .  ".<br><br>Para continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: <br><br><a href='" . $link . "'>" . $link . "</a><br><br>Se você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.<br><br>");
     $cabecalhos = "From: ".$email;
     mail($destinatario, $assunto, $mensagem, $cabecalhos);
