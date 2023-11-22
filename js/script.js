@@ -21,40 +21,32 @@ document.addEventListener( 'DOMContentLoaded', function() {
       return check;
     };
 
-    function blinkingStars() {
-      var Blinkstar = document.createElement("div");
-      var stSize = Math.random() * 6;
-      var xPos = Math.random() * 100;
-      var yPos = Math.random() * 100;
-      Blinkstar.style.height = stSize + "px";
-      Blinkstar.style.width = stSize + "px";
-      Blinkstar.style.backgroundColor = "#ffffff";
-      Blinkstar.style.position = "absolute";
-      Blinkstar.style.top = yPos > 99 ? 98 + "%" : yPos + "%";
-      Blinkstar.style.left = xPos > 92 ? 85 + "%" : xPos + "%";
-      Blinkstar.style.borderRadius = "50%";
-      document.body.appendChild(Blinkstar);
-      Blinkstar.classList.add("blinking-star");
-      setInterval(() => {
-        Blinkstar.remove();
-      }, 1750);
-    }
-    function Stars() {
+    function createStar(size, className) {
       var star = document.createElement("div");
-      var stSize = Math.random() * 1.35;
       var xPos = Math.random() * 100;
       var yPos = Math.random() * 100;
-      star.style.fontSize = stSize + "vw";
+  
       star.style.position = "absolute";
-      star.style.top = yPos > 99 ? 98 + "%" : yPos + "%";
-      star.style.left = xPos > 92 ? 85 + "%" : xPos + "%";
+      star.style.top = yPos > 99 ? "98%" : yPos + "%";
+      star.style.left = xPos > 92 ? "85%" : xPos + "%";
+  
+      if (className === "blinking-star") {
+        star.style.height = size + "px";
+        star.style.width = size + "px";
+        star.style.backgroundColor = "#ffffff";
+        star.style.borderRadius = "50%";
+      } else {
+        star.style.fontSize = size + "vw";
+      }
+  
       document.body.appendChild(star);
-      star.classList.add("star");
-      setInterval(() => {
-        star.remove();
-      }, 1750);
+      star.classList.add(className);
+      setTimeout(() => { star.remove(); }, 1750);
     }
-   
+  
+    function blinkingStars() { createStar(Math.random() * 7, "blinking-star"); }
+    function Stars() { createStar(Math.random() * 1.35, "star"); }
+
     if(mobileCheck() == true){
       document.querySelector('.icons_Links').innerHTML= '<a href="https://google.com" target="_blank"><img src="assets/icones/Instagram.svg" onload="SVGInject(this)"></a><a href="https://google.com" target="_blank"><img src="assets/icones/WhatsApp.svg" onload="SVGInject(this)"></a>';
       document.querySelector('.swiper').remove();

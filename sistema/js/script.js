@@ -34,6 +34,7 @@ $(document).ready(function () {
     }
 });
 
+//FUNÇÃO DE VISUALIZAR SENHA
 function setupPasswordToggle(inputId, toggleId) {
     var passwordInput = document.getElementById(inputId);
     var passwordToggle = document.getElementById(toggleId);
@@ -54,6 +55,7 @@ function setupPasswordToggle(inputId, toggleId) {
     passwordToggleHandler();
 }
 
+//VERICAÇÃO QUANTIDADE DE CARACTERES INPUT
 function verificaTamanhoInput(inputId, displayClass, maxLen) {
     var inputElement = document.getElementById(inputId);
     var displayElement = document.querySelector('.' + displayClass);
@@ -83,6 +85,7 @@ setInterval(
         verificaTamanhoInput('repetNovaSenhaUser', 'repetResetSenhaInput', 25);
 }, 50);
 
+//VERICAÇÃO DE EXCLUSÃO DE MSG
 function limpaMsg(elementClass) {
     var elements = document.querySelectorAll('.' + elementClass);
 
