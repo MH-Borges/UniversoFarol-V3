@@ -1,6 +1,6 @@
 <?php
 
-require_once("../conexao.php"); 
+require_once("../../configs/conexao.php"); 
 
 $id = $_POST['idDeletLink'];
 

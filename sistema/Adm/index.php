@@ -55,103 +55,154 @@ else {
 </head>
 
 <body class="TelaAdm">
+    <img class="EstrelasBack" src="../../assets/estrelas.png" alt="Fundo estrelado">
 
-    <div class="Background">
-        <img class="Padrao" src="../../assets/Padronagem.png">
-    </div>
-
-    <header class="admHeader">
-        <div class="Infos">
-            <a href="../../links.php" class="InfosImg">
-                <img src="../../assets/NH_Logo.png">
-            </a>
-            <div class="nomeTagAdm">
-                <p class="nomeAdm"><?php echo $nomeCompAdm; ?></p>
-                <span class="TagAdm">Painel Administrativo</span>
-            </div>
-        </div>
+    <header>
+        <a href="../../links.php" class="InfosImg">
+            <img src="../../assets/horizontal_Logo.png">
+        </a>
         <button type="button" data-toggle="modal" data-target="#ModalEditPerfil">
-            <img src="../../assets/icones/engrenagem.svg" onload="SVGInject(this)">
+            <img src="../../assets/icones/configs.svg" onload="SVGInject(this)">
         </button>
         <button type="button" data-toggle="modal" data-target="#ModalLogout">
-            <img src="../../assets/icones/sair.svg" onload="SVGInject(this)">
+            <img src="../../assets/icones/logout.svg" onload="SVGInject(this)">
         </button>
     </header>
 
-    <main class="AdmBlock">
-        <div class="addNewLink">
-            <a href='index.php?funcao=novo'>
-                <img src="../../assets/icones/Close.svg" onload="SVGInject(this)">
-                <span>Adicionar novo link</span>
-            </a>
+    <main>
+        <div class="nav nav-pills">
+            <a class="nav-item activeStar active" data-toggle="pill" id="linksTab" href="#links">Links</a>
+            <a class="nav-item" data-toggle="pill" id="formulariosTab" href="#formularios">Formularios</a>
+            <a class="nav-item" data-toggle="pill" id="bancoHorasTab" href="#bancoHoras">Banco de Horas</a>
+            <a class="nav-item" data-toggle="pill" id="lpGeneratorTab" href="#lpGenerator">Gerador de Lp's</a>
+            <a class="backup" href="./">Backup</a>
+            <span class="star_indicator"><img src="../../assets/icones/Brilho.svg" onload="SVGInject(this)"></span>
         </div>
 
-        <div class="linksBlock">
-            <div class="linksAtivos">
-                <h2>Links Ativos</h2>
-                <div class="links">
-                    <?php
-                        $query = $pdo->query("SELECT * FROM links where ativo = 'sim' ORDER BY id ASC");
-                        $dados = $query->fetchAll(PDO::FETCH_ASSOC);
-                        for ($i=0; $i < count($dados); $i++) {
-                            $id_Banner = $dados[$i]['id'];
-                            $img_Banner = $dados[$i]['img'];
-                            $nome_Banner = $dados[$i]['nome'];
-                            $link_Banner = $dados[$i]['link'];
-                            echo "
-                                <div class='BannerLink'>
-                                    <a target='_blank' class='banner' href='https://$link_Banner'>
-                                        <h3> $nome_Banner </h3>
-                                        <img src='../../assets/Banner_Links/$img_Banner'>
-                                    </a>
-                    
-                                    <a id='EditLink' href='index.php?funcao=editar&id=$id_Banner'>Editar</a>
-                                    <a id='DeletLink' href='index.php?funcao=excluir&id=$id_Banner'>Excluir</a>
-                                </div>
-                            ";
-                        }
-                    ?>
+        <div id="TabsAdm" class="tab-content TabsAdm">
+            <div class="tab-pane fade show active" id="links">
+                <div class="ActionsList">
+                    <button type="button" data-toggle="dropdown" aria-expanded="false"></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href='index.php?funcao=novoLink'>Novo link</a>
+                        <a class="dropdown-item" href="index.php?funcao=novaCategoria">Nova Categoria</a>
+                        <a class="dropdown-item" href="index.php?funcao=ListarCategorias">Editar ou Excluir Categoria</a>
+                        <a id="ListagemLinksbtn" class="dropdown-item" onclick="ToggleListagemLinks()">Ver links desativados</a>
+                    </div>
                 </div>
+
+                <div class="linksBlock">
+                    <div class="linksAtivos">
+                        <h2>Links Ativos</h2>
+                        <div class="links">
+                            <?php
+                                $query = $pdo->query("SELECT * FROM links where ativo = 'sim' ORDER BY id ASC");
+                                $dados = $query->fetchAll(PDO::FETCH_ASSOC);
+                                for ($i=0; $i < count($dados); $i++) {
+                                    $id_Banner = $dados[$i]['id'];
+                                    $imgWeb = $dados[$i]['img_Web'];
+                                    $imgMobile = $dados[$i]['img_Mobile'];
+                                    $nome_Banner = $dados[$i]['nome'];
+                                    $categoria_Banner = $dados[$i]['categoria'];
+                                    $link_Banner = $dados[$i]['link'];
+                                    if($imgWeb == "Default_Banner_Web.webp" && $imgMobile == "Default_Banner_Mobile.webp"){
+                                        $img_Banner = "<img src='../../assets/Banner_Links/".$imgWeb."'>"; 
+                                    }
+                                    else if($imgWeb != "Default_Banner_Web.webp" && $imgMobile == "Default_Banner_Mobile.webp"){
+                                        $img_Banner = "<img src='../../assets/Banner_Links/Web/".$imgWeb."'>"; 
+                                    }
+                                    else if($imgWeb == "Default_Banner_Web.webp" && $imgMobile != "Default_Banner_Mobile.webp"){
+                                        $img_Banner = "<img src='../../assets/Banner_Links/Mobile/".$imgMobile."'>"; 
+                                    }
+                                    else{
+                                        $img_Banner = "<img src='../../assets/Banner_Links/Web/".$imgWeb."'>"; 
+                                    }
+                                    echo "
+                                        <div class='BannerLink'>
+                                            <h3> $nome_Banner | $categoria_Banner </h3>
+                                            
+                                            <a target='_blank' class='banner' href='https://$link_Banner'>
+                                                $img_Banner
+                                            </a>
+                                            <div class='linkBtnAction'>
+                                                <a id='EditLink' href='index.php?funcao=editarLink&id=$id_Banner'>Editar</a>
+                                                <a id='DeletLink' href='index.php?funcao=excluirLink&id=$id_Banner'>Excluir</a>
+                                            </div>
+                                        </div>
+                                    ";
+                                }
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="LinkDesativados hide">
+                        <h2>Links Desativados</h2>
+                        <div class="links">
+                            <?php
+                                $query = $pdo->query("SELECT * FROM links where ativo = 'nao' ORDER BY id ASC");
+                                $dados = $query->fetchAll(PDO::FETCH_ASSOC);
+                                for ($i=0; $i < count($dados); $i++) {
+                                    $id_Banner = $dados[$i]['id'];
+                                    $imgWeb = $dados[$i]['img_Web'];
+                                    $imgMobile = $dados[$i]['img_Mobile'];
+                                    $nome_Banner = $dados[$i]['nome'];
+                                    $categoria_Banner = $dados[$i]['categoria'];
+                                    $link_Banner = $dados[$i]['link'];
+
+                                    if($imgWeb == "Default_Banner_Web.webp" && $imgMobile == "Default_Banner_Mobile.webp"){
+                                        $img_Banner = "<img src='../../assets/Banner_Links/".$imgWeb."'>"; 
+                                    }
+                                    else if($imgWeb != "Default_Banner_Web.webp" && $imgMobile == "Default_Banner_Mobile.webp"){
+                                        $img_Banner = "<img src='../../assets/Banner_Links/Web/".$imgWeb."'>"; 
+                                    }
+                                    else if($imgWeb == "Default_Banner_Web.webp" && $imgMobile != "Default_Banner_Mobile.webp"){
+                                        $img_Banner = "<img src='../../assets/Banner_Links/Mobile/".$imgMobile."'>"; 
+                                    }
+                                    else{
+                                        $img_Banner = "<img src='../../assets/Banner_Links/Web/".$imgWeb."'>"; 
+                                    }
+                                    
+                                    echo "
+                                        <div class='BannerLink'>
+                                            <h3> $nome_Banner | $categoria_Banner </h3>
+                                            
+                                            <a target='_blank' class='banner' href='https://$link_Banner'>
+                                                $img_Banner
+                                            </a>
+                                            <div class='linkBtnAction'>
+                                                <a id='EditLink' href='index.php?funcao=editarLink&id=$id_Banner'>Editar</a>
+                                                <a id='DeletLink' href='index.php?funcao=excluirLink&id=$id_Banner'>Excluir</a>
+                                            </div>
+                                        </div>
+                                    ";
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-    
-            <div class="LinkDesativados">
-                <h2>Links Desativados</h2>
-                <div class="links">
-                    <?php
-                        $query = $pdo->query("SELECT * FROM links where ativo = 'nao' ORDER BY id ASC");
-                        $dados = $query->fetchAll(PDO::FETCH_ASSOC);
-                        for ($i=0; $i < count($dados); $i++) {
-                            $id_Banner = $dados[$i]['id'];
-                            $img_Banner = $dados[$i]['img'];
-                            $nome_Banner = $dados[$i]['nome'];
-                            $link_Banner = $dados[$i]['link'];
-                            $link_img = '../../assets/Banner_Links/' . $img_Banner;
-                            echo "
-                                <div class='BannerLink'>
-                                    <a target='_blank' class='banner' href='https://$link_Banner'>
-                                        <h3> $nome_Banner </h3>
-                                        <img src='../../assets/Banner_Links/$img_Banner'>
-                                    </a>
-                    
-                                    <a id='EditLink' href='index.php?funcao=editar&id=$id_Banner'>Editar</a>
-                                    <a id='DeletLink' href='index.php?funcao=excluir&id=$id_Banner'>Excluir</a>
-                                </div>
-                            ";
-                        }
-                    ?>
-                </div>
+
+            <div class="tab-pane fade" id="formularios">
+                TESTE FORMULARIO
+            </div>
+
+            <div class="tab-pane fade" id="bancoHoras">
+                TESTE BANCO DE HORAS
+            </div>
+
+            <div class="tab-pane fade" id="lpGenerator">
+                TESTE GERADOR DE LP'S
             </div>
         </div>
+
     </main>
 
     <!-- Modal Logout-->
-    <div class="modal fade" id="ModalLogout" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalLogout" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog ModalLogout">
             <div class="modal-content">
-                <button type="button" class="CloseBtn" data-dismiss="modal" aria-label="Close">
-                    <img src="../../assets/icones/Close.svg" onload="SVGInject(this)">
-                </button>
+                <button type="button" class="CloseBtn" data-dismiss="modal" aria-label="Close" onclick="resetIndex()"></button>
                 <div class="modal-body">
                     <h5>Já vai embora?</h5>
                     <h6>Tem certeza que gostaria de sair da sa conta?</h6>
@@ -165,13 +216,10 @@ else {
     </div>
 
     <!-- Modal Editar perfil-->
-    <div class="modal fade" id="ModalEditPerfil" data-backdrop="static" data-keyboard="false" tabindex="-1"     
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalEditPerfil" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog ModalEditPerfil">
             <div class="modal-content">
-                <button type="button" class="CloseBtn" data-dismiss="modal" aria-label="Close">
-                    <img src="../../assets/icones/Close.svg" onload="SVGInject(this)">
-                </button>
+                <button type="button" class="CloseBtn" data-dismiss="modal" aria-label="Close" onclick="resetIndex()"></button>
                 <div class="modal-body">
                     <div id="MenuAdm" class="nav nav-pills MenuAdm">
                         <a class="active" data-toggle="pill" id="InicioTab" href="#ContaDados">Dados da conta</a>
@@ -225,23 +273,22 @@ else {
                         <div class="tab-pane fade" id="SenhaTroca">
                             <form id="formEditSenhaUser" class="senhaEdit" method="POST">
                                 <h4>Alterar Senha:</h4>
-
                                 <div class="BlockBox senhaInput">
                                     <input type="password" name="antigaSenha" id="antigaSenha" maxlength="25" required>
                                     <span>Senha antiga:</span>
-                                    <i id="password_toggle" onclick="passwordToggle()" class="senhaIcon fa fa-eye-slash"></i>
+                                    <i id="password_toggle" onclick="setupPasswordToggle('antigaSenha', 'password_toggle')" class="senhaIcon fa fa-eye-slash"></i>
                                     <p class="lengthInput SenhaAntigaEditInput"></p>
                                 </div>
                                 <div class="BlockBox senhaInput">
                                     <input type="password" name="novaSenha" id="novaSenha" maxlength="25" required>
                                     <span>Nova senha:</span>
-                                    <i id="password_toggle_new" onclick="passwordToggleNew()" class="senhaIcon fa fa-eye-slash"></i>
+                                    <i id="password_toggle_new" onclick="setupPasswordToggle('novaSenha', 'password_toggle_new')" class="senhaIcon fa fa-eye-slash"></i>
                                     <p class="lengthInput NovaSenhaEditInput"></p>
                                 </div>
                                 <div class="BlockBox senhaInput">
                                     <input type="password" name="confirmaNovaSenha" id="confirmaNovaSenha" maxlength="25" required>
                                     <span>Confirma nova senha:</span>
-                                    <i id="password_toggle_confirm" onclick="passwordToggleConfirm()" class="senhaIcon fa fa-eye-slash"></i>
+                                    <i id="password_toggle_confirm" onclick="setupPasswordToggle('confirmaNovaSenha', 'password_toggle_confirm')" class="senhaIcon fa fa-eye-slash"></i>
                                     <p class="lengthInput ConfirmaNovaSenhaEditInput"></p>
                                 </div>
 
@@ -253,58 +300,91 @@ else {
                         </div>
                     </div>
                 </div>
-                <div id="msgErros"></div>
+                <div id="msgErro_EditUser"></div>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Dados-->
-    <div class="modal fade" id="ModalDados" data-backdrop="static" data-keyboard="false" tabindex="-1"     
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog ModalDados">
+
+<!-- LINKS -->
+    <!-- Modal de Novos & Edição-->
+    <div class="modal fade" id="ModalLinks" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog ModalLinks">
             <div class="modal-content">
-                <button type="button" class="CloseBtn" onclick="resetIndex()" data-dismiss="modal" aria-label="Close">
-                    <img src="../../assets/icones/Close.svg" onload="SVGInject(this)">
-                </button>
+                <button type="button" class="CloseBtn" data-dismiss="modal" aria-label="Close" onclick="resetIndex()"></button>
                 <div class="modal-body">
                     <?php 
-                        if (@$_GET['funcao'] == 'editar') {
-                            $titulo = "Edição de banner de link";
-                            $btn = "Atualizar";
+                        if (@$_GET['funcao'] == 'editarLink') {
+                            $titulo_link = "Edição de banner de link";
+                            $btn_link = "Atualizar";
 
-                            $id_Banner = $_GET['id'];
+                            $id_link = $_GET['id'];
 
-                            $query = $pdo->query("SELECT * FROM links WHERE id = '$id_Banner' LIMIT 1");
+                            $query = $pdo->query("SELECT * FROM links WHERE id = '$id_link' LIMIT 1");
                             $dados = $query->fetchAll(PDO::FETCH_ASSOC);
 
                             if(@count($dados) > 0){
-                                $img = $dados[0]['img'];
-                                $nome = $dados[0]['nome'];
+                                $img_Web = $dados[0]['img_Web'];
+                                $img_Mobile = $dados[0]['img_Mobile'];
+                                $nome_link = $dados[0]['nome'];
+                                $categoria_link = $dados[0]['categoria'];
                                 $link = $dados[0]['link'];
                                 $ativo = $dados[0]['ativo'];
                             }
 
-                        } else { $titulo = "Novo Link"; $btn = "Salvar";}
+                        } else { $titulo_link = "Novo Link"; $btn_link = "Salvar";}
 
                     ?>
-                    <form id="FormDados" method="POST">
-                        <h4><?php echo $titulo ?></h4>
-
-                        <div class="bannerImgEdit">
-                            <input type="file" value="<?php echo @$img ?>" id="BannerEdit" name="BannerEdit" onChange="carregarImgBanner();">
+                    <form id="formLinks" method="POST">
+                        <h4><?php echo $titulo_link ?></h4>
+                        <div class="Img_Web_Block">
+                            <input type="file" value="<?php echo @$img_Web ?>" id="Banner_Web" name="Banner_Web" onChange="carregarImgWeb();">
                             <?php
-                                if(@$img != ""){
-                                    echo "<img class='BannerIcon imgBannerFull' id='targetBanner' src='../../assets/Banner_Links/$img'>";
+                                if(@$img_Web == "Default_Banner_Web.webp" || @$img_Web == ""){
+                                    echo "<img class='Banner_Img_Web' id='target_imgWeb' src='../../assets/Banner_Links/Default_Banner_Web.webp'>";
                                 }else{
-                                    echo "<img class='BannerIcon' id='targetBanner' src='../../assets/icones/bannerIcon.svg'>";
+                                    echo "<img class='Banner_Img_Web imgSelected' id='target_imgWeb' src='../../assets/Banner_Links/Web/$img_Web'>";
                                 }
                             ?>
-                            <img class="editPen" onclick="EditBanner()" src="../../assets/icones/caneta.svg" onload="SVGInject(this)">
-                            <span>Tamanho de banner recomendado: 800 x 250</span>
+                            <img class="editPen" onclick="Banner_Web()" src="../../assets/icones/caneta.svg" onload="SVGInject(this)">
+                            <!-- <span>Tamanho de banner recomendado: 800 x 250</span> -->
                         </div>
-
+                        <div class="Img_Mobile_Block">
+                            <input type="file" value="<?php echo @$img_Mobile ?>" id="Banner_Mobile" name="Banner_Mobile" onChange="carregarImgMobile();">
+                            <?php
+                                if(@$img_Mobile == "Default_Banner_Mobile.webp" || @$img_Mobile == ""){
+                                    echo "<img class='Banner_Img_Mobile' id='target_imgMobile' src='../../assets/Banner_Links/Default_Banner_Mobile.webp'>";
+                                }else{
+                                    echo "<img class='Banner_Img_Mobile imgSelected' id='target_imgMobile' src='../../assets/Banner_Links/Mobile/$img_Mobile'>";
+                                }
+                            ?>
+                            <img class="editPen" onclick="Banner_Mobile()" src="../../assets/icones/caneta.svg" onload="SVGInject(this)">
+                            <!-- <span>Tamanho de banner recomendado: 800 x 250</span> -->
+                        </div>
                         <div class="BlockBox">
-                            <input type="text" value="<?php echo @$nome ?>" name="nomeLink" id="nomeLink" maxlength="50" required>
+                            <select name="categorias" id="categorias" required>
+                                <?php 
+                                    if($categoria_link == ""){
+                                        echo '<option value="categoria_null">Categorias:</option>';
+                                    }else{
+                                        echo "
+                                            <option value='$categoria_link'> $categoria_link </option>
+                                            <option value='categoria_null'>Categorias:</option>
+                                        ";
+                                    }
+                               
+                                    $query2 = $pdo->query("SELECT * FROM categoria_links ORDER BY id ASC");
+                                    $dados2 = $query2->fetchAll(PDO::FETCH_ASSOC);
+                                    for ($j=0; $j < count($dados2); $j++) {
+                                        $nome_Categorias_link = $dados2[$j]['nome'];
+                                        echo "<option value='$nome_Categorias_link'> $nome_Categorias_link </option>";
+                                    }
+                                    
+                                ?>
+                            </select>
+                        </div>
+                        <div class="BlockBox">
+                            <input type="text" value="<?php echo @$nome_link ?>" name="nomeLink" id="nomeLink" maxlength="50" required>
                             <span>Nome do Link:</span>
                             <p class="lengthInput nomeLinkInput"></p>
                         </div>
@@ -325,65 +405,149 @@ else {
                                     }
                                 }else{
                                     echo "<input type='checkbox' id='linkAtivo' name='linkAtivo' checked>";
-
                                 }
                             ?>
                         </div>
-                        <input type="hidden" id="idEdit" name="idEdit" value="<?php echo @$_GET['id'] ?>" required>
-                        <button class="SalvarBtnModal" id="SalvarNovoLink" type="submit"><?php echo $btn ?></button>
+
+                        <input type="hidden" id="idEditLink" name="idEditLink" value="<?php echo @$_GET['id'] ?>" required>
+                        <button class="SalvarBtnModal" id="SalvarLink" type="submit"><?php echo $btn_link ?></button>
                     </form> 
                 </div>
-                <div class="msgErros"></div>
+                <div class="msgErro_Links"></div>
             </div>
         </div>
     </div>
 
-    <!-- Modal Delet Link-->
-    <div class="modal fade" id="ModalDeletLink" data-backdrop="static" data-keyboard="false" tabindex="-1"     
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Modal Deletar-->
+    <div class="modal fade" id="ModalDeletLink" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog ModalDeletLink">
             <div class="modal-content">
-                <button type="button" class="CloseBtn" onclick="resetIndex()" data-dismiss="modal" aria-label="Close">
-                    <img src="../../assets/icones/Close.svg" onload="SVGInject(this)">
-                </button>
+                <button type="button" class="CloseBtn" data-dismiss="modal" aria-label="Close" onclick="resetIndex()"></button>
                 <div class="modal-body">
-                   
                     <form id="formDeletLink" method="POST">
                         <h4>Excluir Link</h4>
 
                         <h5>Tem certeza que gostaria de excluir esse link?</h5>
-                        <?php $id_Banner = $_GET['id']; ?>
-                        
-                        <input type="hidden" id="idDeletLink" name="idDeletLink" value="<?php echo $id_Banner ?>" required>
-
-                        <button class="CancelarBtnModal" id="CancelarDeletLink" type="button">Cancelar</button>
+                        <input type="hidden" id="idDeletLink" name="idDeletLink" value="<?php echo @$_GET['id'] ?>" required>
                         <button class="DeletBtnModal" id="DeletLinkbtn" type="button">Excluir</button>
-                    </form> 
+                    </form>
+                    <button class="CancelarBtnModal" id="CancelarDeletLink" type="button">Cancelar</button>
                 </div>
-                <div class="msgErrosDelet"></div>
+                <div class="msgErro_DeletLink"></div>
             </div>
         </div>
     </div>
 
 
-    
+<!-- CATEGORIAS -->
+    <!-- Modal de Listagem-->
+    <div class="modal fade" id="ModalListagemCategorias" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog ModalListagemCategorias">
+            <div class="modal-content">
+                <button type="button" class="CloseBtn" data-dismiss="modal" aria-label="Close" onclick="resetIndex()"></button>
+                <div class="modal-body">
+                    <?php
+                        $query = $pdo->query("SELECT * FROM categoria_links ORDER BY id ASC");
+                        $dados = $query->fetchAll(PDO::FETCH_ASSOC);
+                        for ($i=0; $i < count($dados); $i++) {
+                            $id_Categorias = $dados[$i]['id'];
+                            $nome_Categorias = $dados[$i]['nome'];
+                            echo "
+                                <div class='Listagem_categoria_Links'>
+                                    <p> $nome_Categorias </p>
+                    
+                                    <a id='EditCateg' href='index.php?funcao=editarCategoria&id=$id_Categorias'>Editar</a>
+                                    <a id='DeletCateg' href='index.php?funcao=excluirCategoria&id=$id_Categorias'>Excluir</a>
+                                </div>
+                            ";
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Modal de Novas & Edição-->
+    <div class="modal fade" id="ModalCategoria" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog ModalCategoria">
+            <div class="modal-content">
+                <button type="button" class="CloseBtn" data-dismiss="modal" aria-label="Close" onclick="resetIndex()"></button>
+                <div class="modal-body">
+                    <?php 
+                        if (@$_GET['funcao'] === 'editarCategoria') {
+                            $titulo_categoria = "Edição de categoria";
+                            $btn = "Atualizar";
+
+                            $id_Categoria = $_GET['id'];
+
+                            $query = $pdo->query("SELECT * FROM categoria_links WHERE id = '$id_Categoria' LIMIT 1");
+                            $dados = $query->fetchAll(PDO::FETCH_ASSOC);
+                            if(@count($dados) > 0){
+                                $nome_Categoria = $dados[0]['nome'];
+                            }
+
+                        } else { $titulo_categoria = "Nova Categoria"; $btn = "Salvar";}
+
+                    ?>
+                    <form id="formCategorias" method="POST">
+                        <h4><?php echo @$titulo_categoria ?></h4>
+                        <div class="BlockBox">
+                            <input type="text" name="nomeCateg" id="nomeCateg" maxlength="150" value="<?php echo @$nome_Categoria ?>" required>
+                            <span>Categoria:</span>
+                            <p class="lengthInput categoriaInput"></p>
+                        </div>
+                        <input type="hidden" id="idEditCateg" name="idEditCateg" value="<?php echo @$_GET['id'] ?>" required>
+                        <button class="SalvarBtnModal" id="SalvarCategoriaLinks" type="submit"><?php echo $btn ?></button>
+                    </form>
+                </div>
+                <div id="msgErro_Categoria"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Deletar-->
+    <div class="modal fade" id="ModalDeletCategoria" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog ModalDeletCategoria">
+            <div class="modal-content">
+                <button type="button" class="CloseBtn" onclick="resetIndex()" data-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                    <form id="formDeletCategoria" method="POST">
+                        <h4>Exclusão de categoria</h4>
+                        <h5>Tem certeza que gostaria de excluir essa categoria?</h5>
+                        
+                        <input type="hidden" id="idDeletCateg" name="idDeletCateg" value="<?php echo @$_GET['id'] ?>" required>
+                        <button class="DeletBtnModal" id="DeletCategoria" type="button" style="margin-left: 25vw;">Excluir</button>
+                    </form>
+                    <button class="CancelaBtnModal" id="CancelarDeletCateg" type="button" onclick="VoltarPage()">Cancelar</button>
+                </div>
+                <div class="msgErro_DeletCateg"></div>
+            </div>
+        </div>
+    </div>
 <?php 
 
-if (@$_GET["funcao"] != null && @$_GET["funcao"] == "novo") {
-    echo "<script language='javascript'> $('#ModalDados').modal('show');</script>";
+// **LINKS** //
+if (@$_GET["funcao"] != null && @$_GET["funcao"] == "novoLink" || @$_GET["funcao"] == "editarLink") {
+    echo "<script language='javascript'> $('#ModalLinks').modal('show');</script>";
 }
 
-if (@$_GET["funcao"] != null && @$_GET["funcao"] == "editar") {
-    echo "<script language='javascript'> $('#ModalDados').modal('show');</script>";
-}
-
-if (@$_GET["funcao"] != null && @$_GET["funcao"] == "excluir") {
+if (@$_GET["funcao"] != null && @$_GET["funcao"] == "excluirLink") {
     echo "<script language='javascript'> $('#ModalDeletLink').modal('show');</script>";
 }
 
+// **CATEGORIAS** //
+if (@$_GET["funcao"] != null && @$_GET["funcao"] == "ListarCategorias") {
+    echo "<script language='javascript'> $('#ModalListagemCategorias').modal('show');</script>";
+}
+
+if (@$_GET["funcao"] != null && @$_GET["funcao"] == "novaCategoria" || @$_GET["funcao"] == "editarCategoria") {
+    echo "<script language='javascript'> $('#ModalCategoria').modal('show');</script>";
+}
+
+if (@$_GET["funcao"] != null && @$_GET["funcao"] == "excluirCategoria") {
+    echo "<script language='javascript'> $('#ModalDeletCategoria').modal('show');</script>";
+}
 ?>
 
 </body>
 </html>
-
-

@@ -11,8 +11,9 @@
 
 }
 .hide {
-    opacity: 0;
-    display: none;
+    opacity: 0 !important;
+    display: none !important;
+    user-select: none !important;
 }
 ::-webkit-scrollbar {
     width: 0.5vw;
@@ -50,7 +51,6 @@ body {
         position: relative;
         z-index: 0;
     }
-
     .star {
         animation-name: blink;
         animation-duration: 1s;
@@ -105,4 +105,4 @@ body {
 @import 'Links';
 @import 'Login';
 @import 'recuperarSenha';
-// @import 'TeladeAdm';
+@import 'TeladeAdm';

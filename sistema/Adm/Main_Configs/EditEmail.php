@@ -1,5 +1,5 @@
 <?php
-require_once("../conexao.php"); 
+require_once("../../configs/conexao.php"); 
 
 $emailAntigo = $_POST['antigoEmail'];
 $novoEmail = filter_var($_POST['novoEmail'], FILTER_SANITIZE_EMAIL);
@@ -24,7 +24,7 @@ if($confirmaNovoEmail == ""){
 }
 
 if($emailAntigo != $emailUserSemAlteracoes){
-    echo 'E-mail antigo não coicide com e-mail cadastrado no banco de dados!';
+    echo 'E-mail antigo não coicide com nenhum e-mail cadastrado no banco de dados!';
     exit();
 }
 

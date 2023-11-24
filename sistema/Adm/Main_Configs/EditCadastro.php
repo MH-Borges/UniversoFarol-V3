@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require_once("../conexao.php"); 
+require_once("../../configs/conexao.php"); 
 
 $nomeCompEdit = $_POST['nomeCompEdit'];
 $telefoneContatoEdit = $_POST['telefoneContatoEdit'];

@@ -40,8 +40,11 @@
 }
 
 .hide {
-  opacity: 0;
-  display: none;
+  opacity: 0 !important;
+  display: none !important;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+          user-select: none !important;
 }
 
 ::-webkit-scrollbar {
@@ -158,6 +161,10 @@ body main section {
 .linksPage main .LogoLinks {
   width: 7vw;
   margin: 6vh 0 3vh 0;
+}
+.linksPage main .LogoLinks img {
+  width: 100%;
+  height: 100%;
 }
 .linksPage main h1 {
   width: 90%;
@@ -333,6 +340,7 @@ body main section {
     overflow-x: hidden;
     height: auto;
     min-height: 100vh;
+    min-height: 100dvh;
     width: 100vw;
     position: relative;
     background-color: #03173C;
@@ -341,6 +349,7 @@ body main section {
     z-index: 2;
     width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
     height: auto;
     align-items: center;
     position: relative;
@@ -387,7 +396,7 @@ body main section {
     order: 4;
     z-index: 5;
     width: 100%;
-    height: 6vh;
+    height: 6dvh;
     margin: 3vh 0;
     display: flex;
     flex-direction: row;
@@ -692,10 +701,6 @@ body main section {
   justify-content: center;
   border-radius: 50%;
   z-index: 10 !important;
-}
-.Login #ModalRecoverSenha .ModalRecoverSenha .modal-content .CloseBtn svg {
-  width: 50%;
-  height: 50%;
 }
 .Login #ModalRecoverSenha .ModalRecoverSenha .modal-content .CloseBtn::before {
   content: "";
@@ -1038,6 +1043,931 @@ body main section {
   outline: solid #FFFFFF 1px;
   color: #FFFFFF;
   background: #FF6D2A;
+}
+
+/*--------------------------------- Responsive Media Quaries -----------------------------*/
+/* MOBILE */
+/* Landscape */
+/* TABLET */
+/* Landscape */
+.TelaAdm {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  background: #03173C;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+.TelaAdm .EstrelasBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.TelaAdm header {
+  padding: 1vw;
+  width: 100%;
+  height: 13vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm header .InfosImg {
+  width: 8vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5vh 0.5vw;
+}
+.TelaAdm header .InfosImg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.TelaAdm header button {
+  border: none;
+  background: none;
+  width: 4vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75vw;
+  margin: 0 0.5vw;
+}
+.TelaAdm header button svg {
+  width: 100%;
+  height: 100%;
+}
+.TelaAdm header button svg path {
+  stroke-width: 3px;
+}
+.TelaAdm header button:nth-child(2) {
+  margin-left: auto;
+  padding: 0.55vw;
+}
+.TelaAdm main {
+  width: 100%;
+  height: 87vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.TelaAdm main .nav {
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 2vh 0;
+}
+.TelaAdm main .nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -0.1vw;
+  background: #FFFFFF;
+  height: 100%;
+  width: 0.25vw;
+}
+.TelaAdm main .nav .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 85%;
+  height: 7.5vh;
+  margin: 1vh 0;
+  color: #FFFFFF;
+  font-size: 1.4vw;
+  font-weight: 800;
+  text-align: center;
+}
+.TelaAdm main .nav .backup {
+  position: absolute;
+  bottom: 2vh;
+  color: #FFFFFF;
+  font-size: 1vw;
+  font-weight: 800;
+  text-align: center;
+}
+.TelaAdm main .nav .star_indicator {
+  position: absolute;
+  right: -1.25vw;
+  top: 0;
+  transition: 0.4s;
+  width: 2.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm main .nav .star_indicator svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.TelaAdm main .nav .star_indicator svg path {
+  fill: #FFFFFF;
+  stroke: #FF6D2A;
+  stroke-width: 0.35vw;
+}
+.TelaAdm main .TabsAdm {
+  width: 85%;
+  height: 100%;
+  transition: 0.2s ease-in-out;
+}
+.TelaAdm main .TabsAdm #links {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.TelaAdm main .TabsAdm #links .ActionsList {
+  top: -10vh;
+  right: 12vw;
+  position: absolute;
+  width: 3.75vw;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.TelaAdm main .TabsAdm #links .ActionsList::before {
+  content: "";
+  width: 75%;
+  height: 0.75vh;
+  border-radius: 2vw;
+  border: 1px solid #FFFFFF;
+  position: absolute;
+  top: 70%;
+}
+.TelaAdm main .TabsAdm #links .ActionsList button {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  background: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.TelaAdm main .TabsAdm #links .ActionsList button::before {
+  content: "";
+  width: 75%;
+  height: 0.75vh;
+  border-radius: 2vw;
+  border: 1px solid #FFFFFF;
+  border: 1px solid #FFFFFF;
+  position: absolute;
+  top: 20%;
+}
+.TelaAdm main .TabsAdm #links .ActionsList button::after {
+  content: "";
+  width: 75%;
+  height: 0.75vh;
+  border-radius: 2vw;
+  border: 1px solid #FFFFFF;
+  position: absolute;
+  top: 45%;
+}
+.TelaAdm main .TabsAdm #links .ActionsList .dropdown-menu {
+  margin-top: 1vh;
+  margin-left: -15.25vw;
+  width: 19vw;
+  border-radius: 1vw;
+}
+.TelaAdm main .TabsAdm #links .ActionsList .dropdown-menu a {
+  text-align: right;
+  width: 100%;
+  color: #03173C;
+  background: none;
+  font-weight: 800;
+  font-size: 1.15vw;
+  padding-right: 0.75vw;
+  margin: 1.5vh 0;
+}
+.TelaAdm main .TabsAdm #links .ActionsList .dropdown-menu a:nth-child(1) {
+  margin: 0 0 1.5vh 0;
+}
+.TelaAdm main .TabsAdm #links .ActionsList .dropdown-menu a:nth-child(4) {
+  margin: 1.5vh 0 0 0;
+}
+.TelaAdm main .TabsAdm #links .ActionsList .dropdown-menu a:hover {
+  color: #FF6D2A;
+}
+.TelaAdm main .TabsAdm #links .linksBlock {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos h2, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados h2 {
+  color: #FFFFFF;
+  font-size: 2.5vw;
+  font-weight: 700;
+  height: 8%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1vh 0 0 0;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links {
+  height: 92%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: auto;
+  padding-top: 3vh;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink {
+  width: 40%;
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 3vw 4vh;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink h3, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink h3 {
+  width: 100%;
+  height: 10%;
+  font-size: 1.25vw;
+  font-weight: 600;
+  color: #0A2749;
+  margin: 0;
+  color: #FFFFFF;
+  text-align: center;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink .banner, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink .banner {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 99;
+  padding: 1.25vh 3.5vw;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink .banner img, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink .banner img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  border-radius: 2vw;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink .linkBtnAction, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink .linkBtnAction {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  transition: ease-in-out 0.75s;
+  transform: translateY(-9vh);
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink .linkBtnAction #EditLink, .TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink .linkBtnAction #DeletLink, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink .linkBtnAction #EditLink, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink .linkBtnAction #DeletLink {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vw;
+  height: 100%;
+  background: none;
+  border: solid #FFFFFF 1px;
+  border-radius: 1.5vw;
+  color: #FFFFFF;
+  font-size: 1.25vw;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75vh 0 0.25vh 0;
+  margin: 0 1.5vw;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink .linkBtnAction #EditLink, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink .linkBtnAction #EditLink {
+  background: #0A2749;
+  left: 8vw;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink .linkBtnAction #DeletLink, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink .linkBtnAction #DeletLink {
+  right: 8vw;
+  background: red;
+}
+.TelaAdm main .TabsAdm #links .linksBlock .linksAtivos .links .BannerLink:hover .linkBtnAction, .TelaAdm main .TabsAdm #links .linksBlock .LinkDesativados .links .BannerLink:hover .linkBtnAction {
+  transform: translateY(0);
+}
+.TelaAdm #ModalLogout {
+  padding: 0;
+  margin: 0;
+}
+.TelaAdm #ModalLogout .ModalLogout {
+  border: solid #FFFFFF 2px;
+  border-radius: 2vw;
+  background-color: #0A2749;
+  color: #FFFFFF;
+  max-width: 100vw;
+  width: 35vw;
+  height: 30vh;
+  margin: 15vh auto;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .CloseBtn {
+  width: 3vw;
+  height: 3vw;
+  position: absolute;
+  right: -1.5vw;
+  top: -1.5vw;
+  border: none;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10 !important;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .CloseBtn svg {
+  width: 50%;
+  height: 50%;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .modal-body {
+  width: 100%;
+  height: 75%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .modal-body h5 {
+  font-size: 2vw;
+  font-weight: 800;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .modal-body h6 {
+  font-size: 1.25vw;
+  font-weight: 500;
+  margin-top: 1vw;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .modal-footer {
+  border: none;
+  width: 100%;
+  height: 25%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .modal-footer a, .TelaAdm #ModalLogout .ModalLogout .modal-content .modal-footer button {
+  border: solid 1px #FFFFFF;
+  padding: 0.75vh 2vw 0.25vh;
+  border-radius: 2vw;
+  margin: 0 0.5vw;
+  background: none;
+  color: #FFFFFF;
+  font-size: 1.25vw;
+  font-weight: 500;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .modal-footer .LogoutBtnModal {
+  background: red;
+  border: none;
+}
+.TelaAdm #ModalLogout .ModalLogout .modal-content .modal-footer .SalvarBtnModal {
+  background: #0A2749;
+  border: none;
+}
+.TelaAdm #ModalEditPerfil {
+  padding: 0;
+  margin: 0;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil {
+  border: solid #FFFFFF 2px;
+  border-radius: 2vw;
+  background-color: #0A2749;
+  color: #FFFFFF;
+  max-width: 100vw;
+  width: 50vw;
+  height: 85vh;
+  margin: 7vh auto;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .CloseBtn {
+  width: 3vw;
+  height: 3vw;
+  position: absolute;
+  right: -1.5vw;
+  top: -1.5vw;
+  border: none;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10 !important;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .CloseBtn svg {
+  width: 50%;
+  height: 50%;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .MenuAdm {
+  width: 85%;
+  height: 10%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  border-bottom: 1px solid #FFFFFF;
+  position: relative;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .MenuAdm a {
+  height: 90%;
+  margin: 1vh 0.5vw;
+  padding: 0 0.5vw;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.25vw;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .MenuAdm a:hover {
+  color: #CACACA;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .MenuAdm ::before {
+  content: "";
+  position: absolute;
+  background: #FFFFFF;
+  height: 75%;
+  width: 0.15vw;
+  bottom: 0;
+  left: 37.5%;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .MenuAdm ::after {
+  content: "";
+  position: absolute;
+  background: #FFFFFF;
+  height: 75%;
+  width: 0.15vw;
+  bottom: 0;
+  right: 36.5%;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm {
+  width: 100%;
+  height: 90%;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca {
+  width: 100%;
+  height: 100%;
+  padding: 1vw;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados h4, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit h4, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit h4, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados h4, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit h4, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit h4, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados h4, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit h4, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit h4 {
+  text-align: center;
+  width: 100%;
+  font-size: 2.5vw;
+  font-weight: 700;
+  margin: 4vh 0;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados .BlockBox, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit .BlockBox, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit .BlockBox, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados .BlockBox, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit .BlockBox, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit .BlockBox, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados .BlockBox, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit .BlockBox, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit .BlockBox {
+  border: solid #FFFFFF 1px;
+  width: 75%;
+  height: 7vh;
+  display: flex;
+  position: relative;
+  border-radius: 2vw;
+  margin: 1vh 0 3vh;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados .BlockBox input, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit .BlockBox input, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit .BlockBox input, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados .BlockBox input, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit .BlockBox input, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit .BlockBox input, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados .BlockBox input, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit .BlockBox input, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit .BlockBox input {
+  width: 100%;
+  border: none;
+  font-size: 1.5vw;
+  font-weight: 200;
+  color: #FFFFFF;
+  background: none;
+  outline: none;
+  padding: 1.75vh 2vw 1vh;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados .BlockBox span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit .BlockBox span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit .BlockBox span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados .BlockBox span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit .BlockBox span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit .BlockBox span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados .BlockBox span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit .BlockBox span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit .BlockBox span {
+  position: absolute;
+  left: 1.5vw;
+  top: 1.5vh;
+  font-size: 1.5vw;
+  color: #FFFFFF;
+  font-weight: 400;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados .BlockBox .lengthInput, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit .BlockBox .lengthInput, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit .BlockBox .lengthInput, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados .BlockBox .lengthInput, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit .BlockBox .lengthInput, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit .BlockBox .lengthInput, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados .BlockBox .lengthInput, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit .BlockBox .lengthInput, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit .BlockBox .lengthInput {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 5vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1.25vw;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados .BlockBox .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit .BlockBox .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit .BlockBox .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados .BlockBox .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit .BlockBox .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit .BlockBox .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados .BlockBox .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit .BlockBox .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit .BlockBox .senhaIcon {
+  opacity: 0;
+  font-size: 1.75vw;
+  margin-top: 1.5vh;
+  margin-right: 0;
+  transition: ease-in-out 0.5s;
+  color: #FFFFFF;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados input:valid ~ span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit input:valid ~ span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit input:valid ~ span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados input:valid ~ span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit input:valid ~ span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit input:valid ~ span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados input:valid ~ span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit input:valid ~ span, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit .BlockBox input:focus ~ span,
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit input:valid ~ span {
+  transform: translate(0, -2.75vh);
+  font-size: 1.1vw;
+  color: #FFFFFF;
+  background-color: #0A2749;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados .senhaInput:hover .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit .senhaInput:hover .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit .senhaInput:hover .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados .senhaInput:hover .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit .senhaInput:hover .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit .senhaInput:hover .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados .senhaInput:hover .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit .senhaInput:hover .senhaIcon, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit .senhaInput:hover .senhaIcon {
+  opacity: 1;
+  font-size: 1.75vw;
+  margin-right: 1vw;
+  transition: ease-in-out 0.5s;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .editDados .SalvarBtnModal, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .emailEdit .SalvarBtnModal, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #ContaDados .senhaEdit .SalvarBtnModal, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .editDados .SalvarBtnModal, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .emailEdit .SalvarBtnModal, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #EmailTroca .senhaEdit .SalvarBtnModal, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .editDados .SalvarBtnModal, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .emailEdit .SalvarBtnModal, .TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content .modal-body .TabsAdm #SenhaTroca .senhaEdit .SalvarBtnModal {
+  position: absolute;
+  bottom: 2vh;
+  padding: 0.75vh 2vw 0.25vh;
+  border-radius: 2vw;
+  margin: 0 0.5vw;
+  color: #FFFFFF;
+  font-size: 1.5vw;
+  font-weight: 500;
+  background: #FF6D2A;
+  border: none;
+}
+.TelaAdm #ModalEditPerfil .ModalEditPerfil .modal-content #msgErros {
+  position: absolute;
+  bottom: 10vh;
+  width: 75%;
+  height: 20vh;
+  overflow: auto;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.25vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm #ModalLinks {
+  padding: 0;
+  margin: 0;
+}
+.TelaAdm #ModalLinks .ModalLinks {
+  border: solid #FFFFFF 2px;
+  border-radius: 2vw;
+  background-color: #0A2749;
+  color: #FFFFFF;
+  max-width: 100vw;
+  width: 50vw;
+  height: 85vh;
+  margin: 7vh auto;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .CloseBtn {
+  width: 3vw;
+  height: 3vw;
+  position: absolute;
+  right: -1.5vw;
+  top: -1.5vw;
+  border: none;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10 !important;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .CloseBtn svg {
+  width: 50%;
+  height: 50%;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 2vw;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados h4 {
+  text-align: center;
+  width: 100%;
+  font-size: 3vw;
+  font-weight: 800;
+  margin: 0;
+  padding: 1vh 0;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .bannerImgEdit {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin: 5vh 0 8vh;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .bannerImgEdit input {
+  opacity: 0;
+  position: absolute;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .bannerImgEdit .BannerIcon {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #CACACA;
+  border-radius: 1.5vw;
+  padding: 2vh 0;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .bannerImgEdit .imgBannerFull {
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 0;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .bannerImgEdit .editPen {
+  width: 3.5vw;
+  padding: 0.75vw;
+  border-radius: 50%;
+  position: absolute;
+  border: solid #FFFFFF 1px;
+  background: #03173C;
+  bottom: -4vh;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .bannerImgEdit .editPen path {
+  fill: #FFFFFF;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .bannerImgEdit span {
+  position: absolute;
+  top: -0.5vh;
+  background: #0A2749;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .BlockBox {
+  border: solid #FFFFFF 1px;
+  width: 80%;
+  height: 6vh;
+  display: flex;
+  position: relative;
+  border-radius: 1.5vw;
+  margin: 2vh 0;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .BlockBox input {
+  width: 100%;
+  border: none;
+  font-size: 1vw;
+  font-weight: 200;
+  color: #FFFFFF;
+  background: none;
+  outline: none;
+  padding: 1vh 1.5vw;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .BlockBox span {
+  position: absolute;
+  left: 1vw;
+  top: 1.5vh;
+  font-size: 1.25vw;
+  color: #FFFFFF;
+  font-weight: 800;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .BlockBox .lengthInput {
+  position: absolute;
+  top: 0;
+  right: 103%;
+  width: 3.25vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1vw;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .BlockBox input:focus ~ span,
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados input:valid ~ span {
+  transform: translate(0, -2.8vh);
+  font-size: 1.1vw;
+  color: #FFFFFF;
+  background-color: #0A2749;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .checkBoxLinkAtivo {
+  position: absolute;
+  font-size: 1.25vw;
+  bottom: 0;
+  left: 1vw;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .modal-body #FormDados .SalvarBtnModal {
+  position: absolute;
+  bottom: 1.5vh;
+  right: 0.5vw;
+  padding: 0.75vh 2vw 0.25vh;
+  border-radius: 2vw;
+  margin: 0 0.5vw;
+  color: #FFFFFF;
+  font-size: 1.5vw;
+  font-weight: 500;
+  background: #FF6D2A;
+  border: none;
+}
+.TelaAdm #ModalLinks .ModalLinks .modal-content .msgErros {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 16vh;
+  overflow: auto;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.25vw;
+}
+.TelaAdm #ModalDeletLink {
+  padding: 0;
+  margin: 0;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink {
+  border: solid #FFFFFF 2px;
+  border-radius: 2vw;
+  background-color: #0A2749;
+  color: #FFFFFF;
+  max-width: 100vw;
+  width: 40vw;
+  height: 40vh;
+  margin: 15vh auto;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .CloseBtn {
+  width: 3vw;
+  height: 3vw;
+  position: absolute;
+  right: -1.5vw;
+  top: -1.5vw;
+  border: none;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10 !important;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .CloseBtn svg {
+  width: 50%;
+  height: 50%;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .modal-body {
+  width: 100%;
+  height: 75%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .modal-body h4 {
+  margin-top: 9vh;
+  text-align: center;
+  font-size: 2vw;
+  font-weight: 700;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .modal-body h5 {
+  text-align: center;
+  font-size: 1.5vw;
+  font-weight: 500;
+  margin-top: 2vh;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .modal-body button {
+  border: solid 1px #FFFFFF;
+  background: none;
+  position: absolute;
+  border-radius: 2vw;
+  color: #FFFFFF;
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .modal-body .CancelarBtnModal {
+  bottom: 1.5vh;
+  left: 6vw;
+  background: #0A2749;
+  padding: 0.75vh 2vw 0.25vh;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .modal-body .DeletBtnModal {
+  bottom: 1.5vh;
+  right: 6vw;
+  background: red;
+  padding: 0.75vh 2vw 0.25vh;
+}
+.TelaAdm #ModalDeletLink .ModalDeletLink .modal-content .msgErrosDelet {
+  position: absolute;
+  bottom: 8vh;
+  width: 75%;
+  height: 10vh;
+  overflow: auto;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.25vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/

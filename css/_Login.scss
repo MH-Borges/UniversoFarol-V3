@@ -203,10 +203,6 @@
                     justify-content: center;
                     border-radius: 50%;
                     z-index: 10 !important;
-                    svg{
-                        width: 50%;
-                        height: 50%;
-                    }
                     &::before{
                         content: '';
                         width: 75%;
